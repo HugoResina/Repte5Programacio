@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   controller: {fileID: 0}
-  playerSpeed: 5
+  playerSpeed: 2
 --- !u!1 &573462013
 GameObject:
   m_ObjectHideFlags: 0
