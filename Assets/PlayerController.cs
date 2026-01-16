@@ -1,38 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 public class PlayerController : MonoBehaviour ,InputSystem_Actions.IPlayerActions
 {
     private float horizontalMove;
     private float verticalMove;
-    public CharacterController player;
+    public CharacterController controller;
     public float playerSpeed; 
-    // Use this for initialization
-    void Start () {
-        player = GetComponent<CharacterController>();
-    }
-    
- 
-    void Update () {
-        //old input sistem
-        //horizontalMove = Input.GetAxis("Horizontal");
-        //verticalMove = Input.GetAxis("Vertical");
+    private Animator animator;
+    InputSystem_Actions inputActions;
 
-    }
-    private void FixedUpdate()
+    private Vector2 lookInput;
+    private Vector2 moveInput;
+
+    private void Awake()
     {
-        player.Move(new Vector3(horizontalMove, 0, verticalMove) * playerSpeed * Time.deltaTime);
+        inputActions = new InputSystem_Actions();
+        inputActions.Player.SetCallbacks(this);
     }
+    void Start () {
+
+        controller = GetComponent<CharacterController>();
+
+        animator = GetComponent<Animator>();
+
+      
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Player.Disable();
+    }
+    private void Update()
+    {
+        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
+        controller.Move(move * playerSpeed * Time.deltaTime);
+        
+
+        animator.SetBool("IsWalking", moveInput != Vector2.zero);
+    }
+
+  
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        moveInput = context.ReadValue<Vector2>();
     }
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("look");
+        lookInput = context.ReadValue<Vector2>();
     }
 
     public void OnAttack(InputAction.CallbackContext context)
