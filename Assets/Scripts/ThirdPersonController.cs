@@ -213,11 +213,12 @@ public class ThirdPersonController : MonoBehaviour
     {
         move = inputValue.Get<Vector2>();
     }
-    public void OnAim(InputAction inputValue)
+    public void OnAim(InputValue value)
     {
         isAiming = !animator.GetBool(aimingParamName);
+
+
         animator.SetBool(aimingParamName, isAiming);
-        
     }
 
     private void OnJump()
