@@ -249,14 +249,14 @@ public class ThirdPersonController : MonoBehaviour
 
         animator.SetBool(groundedParamName, isGrounded);
     }
-    private void OnDrawGizmosSelected()
-    {
-        if(groundCheckPoint == null)
-        {
-            return;
-        }
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(groundCheckPoint.position, groundCheckPointRadius);
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    if(groundCheckPoint == null)
+    //    {
+    //        return;
+    //    }
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawSphere(groundCheckPoint.position, groundCheckPointRadius);
+    //}
     
 }
