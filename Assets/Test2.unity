@@ -811,11 +811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d239f25b687dd2d458daaa57c2889941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCam
-  sensX: 400
-  sensY: 400
-  orientation: {fileID: 0}
-  xRotation: 0
-  yRotation: 0
 --- !u!114 &1042184355
 MonoBehaviour:
   m_ObjectHideFlags: 0
