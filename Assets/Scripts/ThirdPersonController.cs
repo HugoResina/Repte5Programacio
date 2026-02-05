@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -212,9 +213,10 @@ public class ThirdPersonController : MonoBehaviour
     {
         move = inputValue.Get<Vector2>();
     }
-    private void OnAim(InputValue inputValue)
+    public void OnAim(InputAction inputValue)
     {
-        isAiming = inputValue.isPressed;
+        isAiming = !animator.GetBool(aimingParamName);
+        animator.SetBool(aimingParamName, isAiming);
         
     }
 
