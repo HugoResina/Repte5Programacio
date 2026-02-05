@@ -9,6 +9,7 @@ public class ThirdPersonController : MonoBehaviour
     private const string jumpParamName = "Jump";
     private const string groundedParamName = "Grounded";
     private const string fallingParamName = "Falling";
+    private const string aimingParamName = "Aim";
     private const float lookThreshold = 0.01f;
 
     [Header("Cinemachine")]
@@ -55,6 +56,7 @@ public class ThirdPersonController : MonoBehaviour
     private bool isRunning;
     private bool isGrounded = true;
     private bool canJump = true;
+    private bool isAiming = false;
 
     private void Awake()
     {
@@ -64,8 +66,9 @@ public class ThirdPersonController : MonoBehaviour
     private void Update()
     {
         GroundCheck();
-        Debug.Log("grounded: " + isGrounded);
-        
+        //Debug.Log("grounded: " + isGrounded);
+        Debug.Log(isAiming);
+
     }
     private void LateUpdate()
     {
@@ -209,6 +212,11 @@ public class ThirdPersonController : MonoBehaviour
     {
         move = inputValue.Get<Vector2>();
     }
+    private void OnAim(InputValue inputValue)
+    {
+        isAiming = inputValue.isPressed;
+        
+    }
 
     private void OnJump()
     {
@@ -247,4 +255,5 @@ public class ThirdPersonController : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(groundCheckPoint.position, groundCheckPointRadius);
     }
+    
 }
