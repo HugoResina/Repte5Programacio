@@ -59,6 +59,7 @@ public class ThirdPersonController : MonoBehaviour
     private bool canJump = true;
     private bool isAiming = false;
 
+    public GameObject Spine;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -71,6 +72,7 @@ public class ThirdPersonController : MonoBehaviour
         GroundCheck();
         //Debug.Log("grounded: " + isGrounded);
         Debug.Log(isAiming);
+
 
     }
     private void LateUpdate()
@@ -138,9 +140,11 @@ public class ThirdPersonController : MonoBehaviour
     //}
     private void Move()
     {
-        if(animator.GetFloat(speedParamName) > 0.1f)
+        if(animator.GetFloat(speedParamName) > 0.2f)
         {
             animator.SetBool(aimingParamName, false);
+            AimController.AimContInstance.isAiming = false;
+
 
         }
         float targetSpeed = (isRunning ? moveSpeed * 2f : moveSpeed) * move.magnitude;
@@ -204,8 +208,23 @@ public class ThirdPersonController : MonoBehaviour
         if (isAiming)
         {
             float yRotation = cameraTarget.transform.eulerAngles.y;
+           
 
             rb.rotation = Quaternion.Euler(0f, yRotation, 0f);
+           
+            float xRotation = cameraTarget.transform.localEulerAngles.x;
+           
+            if (xRotation > 180f)
+                xRotation -= 360f;
+
+            xRotation = Mathf.Clamp(xRotation, -40f, 40f);
+
+            Vector3 spineRotation = Spine.transform.localEulerAngles;
+
+            spineRotation.x = xRotation;
+
+            Spine.transform.localEulerAngles = spineRotation;
+            
         }
     }
 
@@ -229,8 +248,8 @@ public class ThirdPersonController : MonoBehaviour
     }
     public void OnAim(InputValue value)
     {
-        isAiming = !animator.GetBool(aimingParamName) && animator.GetFloat(speedParamName) < 0.1f && isGrounded;
-
+        isAiming = !animator.GetBool(aimingParamName) && animator.GetFloat(speedParamName) < 0.2f && isGrounded;
+        AimController.AimContInstance.isAiming = isAiming;
 
         animator.SetBool(aimingParamName, isAiming);
     }
