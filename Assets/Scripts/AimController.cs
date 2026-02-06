@@ -4,11 +4,12 @@ public class AimController : MonoBehaviour
 {
     public GameObject MainCamera;
     public GameObject AimCamera;
-    //public GameObject Site;
+    public GameObject Site;
     public static AimController AimContInstance;
     public bool isAiming= false;
     private void Awake()
     {
+        Site.SetActive(false);
         if (AimContInstance == null)
         {
             AimContInstance = this;
@@ -26,11 +27,14 @@ public class AimController : MonoBehaviour
         {
             MainCamera.SetActive(false);
             AimCamera.SetActive(true);
+            Site.SetActive(true);
         }
         else if (!isAiming && !MainCamera.activeInHierarchy)
         {
             MainCamera.SetActive(true);
             AimCamera.SetActive(false);
+            Site.SetActive(false);
+
         }
     }
 
