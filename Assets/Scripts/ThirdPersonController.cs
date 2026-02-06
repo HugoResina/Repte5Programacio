@@ -221,7 +221,7 @@ public class ThirdPersonController : MonoBehaviour
 
             Vector3 spineRotation = Spine.transform.localEulerAngles;
 
-            spineRotation.x = xRotation;
+            spineRotation.x = xRotation*0.5f;
 
             Spine.transform.localEulerAngles = spineRotation;
             
