@@ -136,6 +136,11 @@ public class ThirdPersonController : MonoBehaviour
     //}
     private void Move()
     {
+        if(animator.GetFloat(speedParamName) > 0.1f)
+        {
+            animator.SetBool(aimingParamName, false);
+
+        }
         float targetSpeed = (isRunning ? moveSpeed * 2f : moveSpeed) * move.magnitude;
         currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, Time.fixedDeltaTime * 8f);
 
@@ -193,6 +198,13 @@ public class ThirdPersonController : MonoBehaviour
         pitch = ClampAngle(pitch, bottomClamp, topClamp);
 
         cameraTarget.transform.rotation = Quaternion.Euler(pitch, yaw, 0f);
+
+        if (isAiming)
+        {
+            float yRotation = cameraTarget.transform.eulerAngles.y;
+
+            rb.rotation = Quaternion.Euler(0f, yRotation, 0f);
+        }
     }
 
     private float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -215,15 +227,27 @@ public class ThirdPersonController : MonoBehaviour
     }
     public void OnAim(InputValue value)
     {
-        isAiming = !animator.GetBool(aimingParamName);
+        isAiming = !animator.GetBool(aimingParamName) && animator.GetFloat(speedParamName) < 0.1f && isGrounded;
 
 
         animator.SetBool(aimingParamName, isAiming);
     }
-
+    
+    public void OnAttack(InputValue inputValue)
+    {
+        if (isAiming)
+        {
+            Debug.Log("pam");
+            
+        }
+    }
     private void OnJump()
     {
         Jump();
+       
+        animator.SetBool(aimingParamName, false);
+
+        
     }
     private void OnRun(InputValue inputValue)
     {
