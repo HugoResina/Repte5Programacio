@@ -262,6 +262,7 @@ public class ThirdPersonController : MonoBehaviour
             
         }
     }
+   
     private void OnJump()
     {
         Jump();
