@@ -47,6 +47,9 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField]
     private LayerMask groundLayer;
 
+    [SerializeField]
+    private ParticleSystem muzzleFlash;
+
     private Rigidbody rb;
     private Animator animator;
     private Vector2 move;
@@ -71,7 +74,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         GroundCheck();
         //Debug.Log("grounded: " + isGrounded);
-        Debug.Log(isAiming);
+        //Debug.Log(isAiming);
 
 
     }
@@ -144,6 +147,7 @@ public class ThirdPersonController : MonoBehaviour
         {
             animator.SetBool(aimingParamName, false);
             AimController.AimContInstance.isAiming = false;
+            isAiming = false;
 
 
         }
@@ -258,6 +262,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (isAiming)
         {
+            if(muzzleFlash != null) muzzleFlash.Play();
             Debug.Log("pam");
             
         }

@@ -8,7 +8,8 @@ public class EquiipableItem : MonoBehaviour, IInteractable
     public bool Interact(Interactor interactor)
     {
         Debug.Log("interacted");
-        return true;
         GayManager.GayManagerInstance.hasItemEquiped = true;
+        this.gameObject.SetActive(false);
+        return true;
     }
 }
