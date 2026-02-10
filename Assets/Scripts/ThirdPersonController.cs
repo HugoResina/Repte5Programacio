@@ -11,7 +11,9 @@ public class ThirdPersonController : MonoBehaviour
     private const string groundedParamName = "Grounded";
     private const string fallingParamName = "Falling";
     private const string aimingParamName = "Aim";
+    private const string danceParamName = "Dance";
     private const float lookThreshold = 0.01f;
+    
 
     [Header("Cinemachine")]
     [SerializeField]
@@ -50,6 +52,8 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField]
     private ParticleSystem muzzleFlash;
 
+   
+
     private Rigidbody rb;
     private Animator animator;
     private Vector2 move;
@@ -61,14 +65,17 @@ public class ThirdPersonController : MonoBehaviour
     private bool isGrounded = true;
     private bool canJump = true;
     private bool isAiming = false;
+    private bool isDancing = false;
 
     public GameObject Spine;
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
     }
     private void Update()
     {
@@ -80,11 +87,12 @@ public class ThirdPersonController : MonoBehaviour
     }
     private void LateUpdate()
     {
-        Look();
+
+        if(!isDancing) Look();
     }
     private void FixedUpdate()
     {
-        Move();
+        if (!isDancing) Move();
     }
     private void Jump()
     {
@@ -98,6 +106,20 @@ public class ThirdPersonController : MonoBehaviour
         StartCoroutine(JumpDownTimeCorutine());
         animator.SetTrigger(jumpParamName);
     }
+    private void OnDance()
+    {
+        if (!isDancing && isGrounded)
+        {
+            animator.SetFloat(speedParamName, 0.001f);
+            //Debug.Log("ballo");
+            animator.SetBool(danceParamName, true);
+            isDancing = true;
+
+           
+            StartCoroutine(DanceFinnishCorutine());
+        }
+
+    }
     private IEnumerator JumpDownTimeCorutine()
     {
         yield return new WaitForSeconds(0.25f);
@@ -107,6 +129,12 @@ public class ThirdPersonController : MonoBehaviour
 
         yield return new WaitForSeconds(jumpDonwTime);
         canJump = true;
+    }
+    private IEnumerator DanceFinnishCorutine()
+    {
+        yield return new WaitForSeconds(10);
+        isDancing = false;
+        animator.SetBool(danceParamName, false);
     }
     //private void Move()
     //{
@@ -270,9 +298,11 @@ public class ThirdPersonController : MonoBehaviour
    
     private void OnJump()
     {
-        Jump();
-       
-        animator.SetBool(aimingParamName, false);
+        if (!isDancing)
+        {
+            Jump();
+            animator.SetBool(aimingParamName, false);
+        }
 
         
     }
