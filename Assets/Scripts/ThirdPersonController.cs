@@ -44,9 +44,6 @@ public class ThirdPersonController : MonoBehaviour
     private float jumpDonwTime = 1f;
 
     [SerializeField]
-    private float groundCheckPointRadius = 05f;
-
-    [SerializeField]
     private LayerMask groundLayer;
 
     [SerializeField]
@@ -314,11 +311,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         look = inputValue.Get<Vector2>();
     }
-    //private void GroundCheck()
-    //{
-    //    isGrounded = Physics.CheckSphere(groundCheckPoint.position, groundCheckPointRadius, groundLayer);
-    //    animator.SetBool(groundedParamName, isGrounded);
-    //}
+ 
     private void GroundCheck()
     {
         isGrounded = Physics.Raycast(
@@ -330,14 +323,6 @@ public class ThirdPersonController : MonoBehaviour
 
         animator.SetBool(groundedParamName, isGrounded);
     }
-    //private void OnDrawGizmosSelected()
-    //{
-    //    if(groundCheckPoint == null)
-    //    {
-    //        return;
-    //    }
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawSphere(groundCheckPoint.position, groundCheckPointRadius);
-    //}
+   
     
 }

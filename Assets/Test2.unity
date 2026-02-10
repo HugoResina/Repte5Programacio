@@ -392,7 +392,6 @@ MonoBehaviour:
   groundCheckPoint: {fileID: 542157248}
   jumpStrength: 7
   jumpDonwTime: 1
-  groundCheckPointRadius: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
@@ -828,7 +827,7 @@ Transform:
   m_GameObject: {fileID: 516740639}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.681692, z: 0, w: 0.7316393}
-  m_LocalPosition: {x: 247.43037, y: 14.709999, z: 61.833237}
+  m_LocalPosition: {x: 155.99002, y: 5.3, z: 171.71764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1310,7 +1309,7 @@ Transform:
   m_GameObject: {fileID: 1042184349}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.681692, z: 0, w: 0.7316393}
-  m_LocalPosition: {x: 247.43037, y: 14.709999, z: 61.833237}
+  m_LocalPosition: {x: 155.99002, y: 5.3, z: 171.71764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1556,7 +1555,7 @@ Transform:
   m_GameObject: {fileID: 1126799141}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 143.622, y: 0.471, z: 173.6548}
+  m_LocalPosition: {x: 143.622, y: 2.924, z: 173.6548}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1992,15 +1991,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca7c8fe9fd6d2ae4e96b9236553cea57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 244.65
+      value: 152
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca7c8fe9fd6d2ae4e96b9236553cea57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.91
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca7c8fe9fd6d2ae4e96b9236553cea57, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 62.03
+      value: 172
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ca7c8fe9fd6d2ae4e96b9236553cea57, type: 3}
       propertyPath: m_LocalRotation.w
