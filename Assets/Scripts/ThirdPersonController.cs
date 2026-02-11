@@ -277,7 +277,7 @@ public class ThirdPersonController : MonoBehaviour
     }
     public void OnAim(InputValue value)
     {
-        isAiming = !animator.GetBool(aimingParamName) && animator.GetFloat(speedParamName) < 0.2f && isGrounded;
+        isAiming = !animator.GetBool(aimingParamName) && animator.GetFloat(speedParamName) < 0.2f && isGrounded && !isDancing;
         AimController.AimContInstance.isAiming = isAiming;
 
         animator.SetBool(aimingParamName, isAiming);
