@@ -41,7 +41,7 @@ public class ThirdPersonController : MonoBehaviour
     private float jumpStrength = 7f;
 
     [SerializeField]
-    private float jumpDonwTime = 1f;
+    private float jumpDownTime = 1f;
 
     [SerializeField]
     private LayerMask groundLayer;
@@ -124,7 +124,7 @@ public class ThirdPersonController : MonoBehaviour
         var waitForGrounded = new WaitUntil(() => isGrounded);
         yield return waitForGrounded;
 
-        yield return new WaitForSeconds(jumpDonwTime);
+        yield return new WaitForSeconds(jumpDownTime);
         canJump = true;
     }
     private IEnumerator DanceFinnishCorutine()
