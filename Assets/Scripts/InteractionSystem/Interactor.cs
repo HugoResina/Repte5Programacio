@@ -36,15 +36,13 @@ public class Interactor : MonoBehaviour
     }
     public void OnInteract()
     {
-
        
-            if (_interactable != null)
-            {
+        if (_interactable != null)
+        {
 
-                Debug.Log("E, interactuo");
-                _interactable.Interact(this);
-            }
-        
+            //Debug.Log("E, interactuo");
+            _interactable.Interact(this);
+        }
        
     }
 }

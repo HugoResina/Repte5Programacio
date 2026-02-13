@@ -288,7 +288,7 @@ public class ThirdPersonController : MonoBehaviour
         if (isAiming)
         {
             if(muzzleFlash != null) muzzleFlash.Play();
-            Debug.Log("pam");
+            //Debug.Log("pam");
             
         }
     }
