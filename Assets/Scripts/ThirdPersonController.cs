@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -49,7 +50,9 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField]
     private ParticleSystem muzzleFlash;
 
-   
+    [SerializeField]
+    private CinemachineCamera danceCamera;
+
 
     private Rigidbody rb;
     private Animator animator;
@@ -111,8 +114,9 @@ public class ThirdPersonController : MonoBehaviour
             //Debug.Log("ballo");
             animator.SetBool(danceParamName, true);
             isDancing = true;
+            danceCamera.Priority = 1;
 
-           
+
             StartCoroutine(DanceFinnishCorutine());
         }
 
@@ -131,6 +135,8 @@ public class ThirdPersonController : MonoBehaviour
     {
         yield return new WaitForSeconds(10);
         isDancing = false;
+        danceCamera.Priority = -1;
+
         animator.SetBool(danceParamName, false);
     }
     //private void Move()
