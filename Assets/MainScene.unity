@@ -415,15 +415,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217592914}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 171.73056}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 171.73}
+  m_LocalScale: {x: 1.7425, y: 2.877216, z: 1.7425}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1259869633}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -117.51425, y: -279.378}
+  m_AnchoredPosition: {x: -117.51, y: -279.378}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217592916
@@ -1633,13 +1633,25 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.8180309, y: 0.5546435, z: 0.90947235}
-  m_Center: {x: 0, y: 0.27732164, z: 0}
+  m_Size: {x: 0.818031, y: 1.2514415, z: 0.9094724}
+  m_Center: {x: 0, y: -0.101308025, z: 0}
 --- !u!4 &965057451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a0dfaf0497ab5334a99165f16b697e6e, type: 3}
   m_PrefabInstance: {fileID: 1576385115}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &965057454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965057446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a108fcc1d140024c842085954377892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemMoveAnim
 --- !u!1 &1042184349
 GameObject:
   m_ObjectHideFlags: 0
@@ -3398,6 +3410,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: a0dfaf0497ab5334a99165f16b697e6e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 965057447}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: a0dfaf0497ab5334a99165f16b697e6e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 965057454}
   m_SourcePrefab: {fileID: 100100000, guid: a0dfaf0497ab5334a99165f16b697e6e, type: 3}
 --- !u!1 &1613392719
 GameObject:

@@ -42,7 +42,7 @@ public class ThirdPersonController : MonoBehaviour
     private float jumpStrength = 7f;
 
     [SerializeField]
-    private float jumpDownTime = 1f;
+    private float jumpDownTime = 0.75f;
 
     [SerializeField]
     private LayerMask groundLayer;
@@ -80,14 +80,9 @@ public class ThirdPersonController : MonoBehaviour
     private void Update()
     {
         GroundCheck();
-        //Debug.Log("grounded: " + isGrounded);
-        //Debug.Log(isAiming);
-
-
     }
     private void LateUpdate()
     {
-
         if(!isDancing) Look();
     }
     private void FixedUpdate()

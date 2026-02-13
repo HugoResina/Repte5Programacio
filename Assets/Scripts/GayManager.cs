@@ -6,14 +6,16 @@ public class GayManager : MonoBehaviour
 
     public static GayManager GayManagerInstance;
     public GameObject HatModel;
+
+    //save game
     
     private void Awake()
     {
-        if (hasItemEquiped)
+        /*if (hasItemEquiped)
         {
-            //activar modelo item
+            activar modelo item
            
-        }
+        }*/
        
         if (GayManagerInstance == null)
         {
