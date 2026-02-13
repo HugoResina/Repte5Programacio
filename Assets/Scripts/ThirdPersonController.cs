@@ -139,39 +139,7 @@ public class ThirdPersonController : MonoBehaviour
 
         animator.SetBool(danceParamName, false);
     }
-    //private void Move()
-    //{
-    //    float targetSpeed = (isRunning ? moveSpeed * 2f : moveSpeed) * move.magnitude;
-    //    currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, Time.fixedDeltaTime * 8f);
-
-    //    Vector3 forward = cameraTarget.forward;
-    //    Vector3 right = cameraTarget.right;
-
-    //    forward.y = 0f;
-    //    right.y = 0f;
-    //    forward.Normalize();
-    //    right.Normalize();
-
-    //    Vector3 moveDirection = (forward * move.y + right * move.x).normalized;
-
-    //    if(moveDirection.sqrMagnitude > 0.01f)
-    //    {
-    //        Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
-    //        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10f);
-
-    //        Vector3 currentVelocity = rb.linearVelocity;
-    //        rb.linearVelocity = new Vector3(moveDirection.x * currentSpeed, moveDirection.y * currentSpeed, moveDirection.z * currentSpeed);
-    //    }
-    //    else
-    //    {
-    //        Vector3 currentVelocity = rb.linearVelocity;
-    //        rb.linearVelocity = new Vector3(0, currentVelocity.y, 0);
-    //    }
-
-    //    float normalizedAnimSpeed = currentSpeed / (moveSpeed * 2f);
-    //    animator.SetFloat(speedParamName, normalizedAnimSpeed);
-    //    animator.SetBool(fallingParamName, !isGrounded && rb.linearVelocity.y < -0.1f);
-    //}
+    
     private void Move()
     {
         if(animator.GetFloat(speedParamName) > 0.2f)
