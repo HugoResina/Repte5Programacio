@@ -2557,7 +2557,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 690842479}
-  m_Father: {fileID: 1613392720}
+  m_Father: {fileID: 272266039}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3118,6 +3118,12 @@ PrefabInstance:
       addedObject: {fileID: 791523132}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ca7c8fe9fd6d2ae4e96b9236553cea57, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1613392720}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ca7c8fe9fd6d2ae4e96b9236553cea57, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1446291240}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ca7c8fe9fd6d2ae4e96b9236553cea57, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1259869633}
     - targetCorrespondingSourceObject: {fileID: -2530251679569251172, guid: ca7c8fe9fd6d2ae4e96b9236553cea57, type: 3}
       insertIndex: -1
@@ -3315,7 +3321,6 @@ GameObject:
   - component: {fileID: 1613392720}
   - component: {fileID: 1613392723}
   - component: {fileID: 1613392721}
-  - component: {fileID: 1613392724}
   m_Layer: 0
   m_Name: minimapCamera
   m_TagString: Untagged
@@ -3331,13 +3336,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613392719}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5173471, y: -0.48202902, z: 0.48202902, w: 0.5173471}
-  m_LocalPosition: {x: 152, y: 262.3, z: 172}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 258.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1446291240}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 272266039}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1613392721
 MonoBehaviour:
@@ -3434,19 +3438,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1613392724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613392719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe873a5edad6b74fb69be94de645a1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LimitCamera
-  Player: {fileID: 272266038}
 --- !u!1 &1706447639
 GameObject:
   m_ObjectHideFlags: 0
@@ -8598,7 +8589,6 @@ SceneRoots:
   - {fileID: 300958785}
   - {fileID: 153671485}
   - {fileID: 1042184352}
-  - {fileID: 1613392720}
   - {fileID: 1514473869}
   - {fileID: 516740642}
   - {fileID: 99701390}
