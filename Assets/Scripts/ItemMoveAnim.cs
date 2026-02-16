@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class ItemMoveAnim : MonoBehaviour
 {
-   
-   
+
+
+  
     void Update()
     {
         Vector3 itemRotation = new Vector3(0, 1, 0);
@@ -11,5 +12,10 @@ public class ItemMoveAnim : MonoBehaviour
 
         transform.localEulerAngles += itemRotation;
         transform.position += itemHeight;
+
+        if (GayManager.GayManagerInstance.hasItemEquiped)
+            this.gameObject.SetActive(false);
+
+
     }
 }

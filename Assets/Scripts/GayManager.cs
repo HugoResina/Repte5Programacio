@@ -69,8 +69,11 @@ public class GayManager : MonoBehaviour
             Vector3 loadedPosition = new Vector3(data.posX, data.posY, data.posZ);
             Quaternion loadedRotation = Quaternion.Euler(data.rotX, data.rotY, data.rotZ);
 
+            
             Player.transform.position = loadedPosition;
             Player.transform.rotation = loadedRotation;
+
+
 
             hasItemEquiped = data.hasItemEquiped;
             if (HatModel != null)

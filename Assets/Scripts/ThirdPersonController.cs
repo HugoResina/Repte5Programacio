@@ -91,6 +91,14 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (!isDancing) Move();
     }
+    private void OnEnable()
+    {
+        DanceOnAwake.DanceInHouse += OnDance;
+    }
+    private void OnDisable()
+    {
+        DanceOnAwake.DanceInHouse -= OnDance;
+    }
     private void Jump()
     {
         if(!isGrounded || !canJump)
