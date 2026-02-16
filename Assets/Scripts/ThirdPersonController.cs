@@ -1,12 +1,14 @@
 using System.Collections;
 using Unity.Cinemachine;
-using UnityEditor.Experimental.GraphView;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class ThirdPersonController : MonoBehaviour
 {
+    public static Action OnSaveGame;
+
     private const string speedParamName = "Speed";
     private const string jumpParamName = "Jump";
     private const string groundedParamName = "Grounded";
@@ -260,6 +262,11 @@ public class ThirdPersonController : MonoBehaviour
             //Debug.Log("pam");
             
         }
+    }
+    public void OnSave(InputValue inputValue)
+    {
+        Debug.Log("Save input detected");
+        OnSaveGame?.Invoke();
     }
    
     private void OnJump()
